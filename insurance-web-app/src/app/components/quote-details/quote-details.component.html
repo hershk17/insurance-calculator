@@ -1,1 +1,30 @@
-<p>quote-details works!</p>
+<div *ngIf="quote">
+  {{ quote.reference }}
+  {{ quote.success }}
+  {{ quote.premium }}
+</div>
+
+<div *ngIf="!quote">
+  <h2 class="mb-5">View previous quotes</h2>
+  <form [formGroup]="referenceForm" (ngSubmit)="onSubmit()">
+    <label for="reference" class="form-label">Quote Reference ID</label>
+    <div class="has-validation input-group input-group-lg">
+      <input
+        type="text"
+        id="reference"
+        formControlName="reference"
+        placeholder="example: QMU9TPITNJSUJSYF"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': form['reference'].touched && form['reference'].invalid,
+          'is-valid': form['reference'].touched && !form['reference'].invalid
+        }" />
+      <div class="invalid-feedback mt-2">
+        <div>Reference ID must be 16 characters long</div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <button type="submit" class="btn btn-primary btn-lg">View Quote</button>
+    </div>
+  </form>
+</div>

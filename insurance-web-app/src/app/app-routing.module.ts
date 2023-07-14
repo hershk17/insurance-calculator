@@ -4,12 +4,12 @@ import { QuoteFormComponent } from './components/quote-form/quote-form.component
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { HistoryComponent } from './components/history/history.component';
+import { QuoteDetailsComponent } from './components/quote-details/quote-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'calculate', component: QuoteFormComponent },
-  { path: 'history', component: HistoryComponent },
+  { path: 'quotes', component: QuoteDetailsComponent },
   { path: 'about', component: AboutComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },

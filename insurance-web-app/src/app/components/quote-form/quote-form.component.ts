@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Driver } from '../../models/driver';
 import { InsuranceService } from '../../services/insurance.service';
+import { Router } from '@angular/router';
+import { Quote } from 'src/app/models/quote';
 
 @Component({
   selector: 'app-driver-form',
@@ -11,7 +13,7 @@ import { InsuranceService } from '../../services/insurance.service';
 export class QuoteFormComponent {
   driverForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private insuranceService: InsuranceService) {
+  constructor(private formBuilder: FormBuilder, private router: Router, private insuranceService: InsuranceService) {
     this.driverForm = this.formBuilder.group({
       licenseNo: ['', Validators.required],
       name: ['', Validators.required],
@@ -44,8 +46,11 @@ export class QuoteFormComponent {
       vehicleAnnualMileage: 9000,
     };
 
-    this.insuranceService.getNewQuote(driverInfo).subscribe((res) => {
-      console.log(res);
+    this.insuranceService.getNewQuote(driverInfo).subscribe((res: string) => {
+      if(!res) {
+        // show error message
+      }
+      this.router.navigate(['quotes'], { queryParams: { reference: res } });
     });
   }
 
@@ -69,8 +74,11 @@ export class QuoteFormComponent {
       vehicleAnnualMileage: this.form['vehicleAnnualMileage'].value,
     };
 
-    this.insuranceService.getNewQuote(driverInfo).subscribe((res) => {
-      console.log(res);
+    this.insuranceService.getNewQuote(driverInfo).subscribe((res: string) => {
+      if (!res) {
+        // show error message
+      }
+      this.router.navigate(['quotes'], { queryParams: { reference: res } });
     });
   }
 }

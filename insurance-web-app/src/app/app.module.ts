@@ -10,12 +10,11 @@ import { InsuranceService } from './services/insurance.service';
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { HistoryComponent } from './components/history/history.component';
 import { QuoteListComponent } from './components/quote-list/quote-list.component';
 import { QuoteDetailsComponent } from './components/quote-details/quote-details.component';
 
 @NgModule({
-  declarations: [AppComponent, QuoteFormComponent, HomeComponent, AboutComponent, NotFoundComponent, HistoryComponent, QuoteListComponent, QuoteDetailsComponent],
+  declarations: [AppComponent, QuoteFormComponent, HomeComponent, AboutComponent, NotFoundComponent, QuoteListComponent, QuoteDetailsComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, ReactiveFormsModule],
   providers: [InsuranceService],
   bootstrap: [AppComponent],
