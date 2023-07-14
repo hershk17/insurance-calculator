@@ -1,5 +1,7 @@
+import { Quote } from "./quote";
+
 export interface Driver {
-  id: number;
+  licenseNo: string;
   name: string;
   age: number;
   experience: number;
@@ -9,4 +11,5 @@ export interface Driver {
   vehicleAge: number;
   vehiclePurchasePrice: number;
   vehicleAnnualMileage: number;
+  insuranceQuote?: Quote;
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Driver } from '../../models/driver';
 import { DriverService } from '../../services/driver.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -14,11 +14,11 @@ export class DriverFormComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
     private router: Router,
     private driverService: DriverService
   ) {
     this.driverForm = this.formBuilder.group({
+      licenseNo: ['', Validators.required],
       name: ['', Validators.required],
       age: ['', [Validators.required, Validators.min(18)]],
       experience: ['', [Validators.required, Validators.min(0)]],
@@ -35,6 +35,25 @@ export class DriverFormComponent {
     return this.driverForm.controls;
   }
 
+  falseSubmit() {
+    var driverInfo: Driver = {
+      licenseNo: 'ABCD123',
+      name: 'Harsh',
+      age: 13,
+      experience: 2,
+      faults: 1,
+      insuranceCount: 4,
+      insuranceClaims: 3,
+      vehicleAge: 4,
+      vehiclePurchasePrice: 30000,
+      vehicleAnnualMileage: 9000,
+    };
+
+    this.driverService.calculateInsurance(driverInfo).subscribe((res) => {
+      console.log(res);
+    });
+  }
+
   onSubmit() {
     this.driverForm.markAllAsTouched();
 
@@ -43,7 +62,7 @@ export class DriverFormComponent {
     }
 
     var driverInfo: Driver = {
-      id: -1,
+      licenseNo: this.form['licenseNo'].value,
       name: this.form['name'].value,
       age: this.form['age'].value,
       experience: this.form['experience'].value,
@@ -55,7 +74,8 @@ export class DriverFormComponent {
       vehicleAnnualMileage: this.form['vehicleAnnualMileage'].value,
     };
 
-    this.driverService.save(driverInfo).subscribe((res) => {
+    this.driverService.calculateInsurance(driverInfo).subscribe((res) => {
+      console.log(res);
       this.router.navigate(['/drivers']);
     });
   }

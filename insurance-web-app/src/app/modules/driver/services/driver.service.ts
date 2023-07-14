@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class DriverService {
   baseUrl: string = 'http://localhost:8080';
   driversParam: string = '/drivers';
-  driverParam: string = '/driver';
+  calculateParam: string = '/calculate';
 
   constructor(private http: HttpClient) {}
 
@@ -15,7 +15,7 @@ export class DriverService {
     return this.http.get<Driver[]>(this.baseUrl + this.driversParam);
   }
 
-  public save(driver: Driver) {
-    return this.http.post<Driver>(this.baseUrl + this.driverParam, driver);
+  public calculateInsurance(driver: Driver) {
+    return this.http.post<Driver>(this.baseUrl + this.calculateParam, driver);
   }
 }
