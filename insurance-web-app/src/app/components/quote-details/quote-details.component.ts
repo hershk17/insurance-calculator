@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,6 +18,7 @@ export class QuoteDetailsComponent {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    private location: Location,
     private insuranceService: InsuranceService
   ) {
     this.referenceForm = this.formBuilder.group({
@@ -25,6 +27,7 @@ export class QuoteDetailsComponent {
     this.route.queryParams.subscribe((params) => {
       let reference = params['reference'];
       if (!reference) {
+        this.quote = undefined;
         return;
       }
       this.insuranceService.getQuoteByReference(reference).subscribe((res: Quote) => {
@@ -51,5 +54,13 @@ export class QuoteDetailsComponent {
         reference: this.form['reference'].value,
       },
     });
+  }
+
+  backClicked() {
+    this.location.back();
+  }
+
+  supportClicked() {
+    console.log('support clicked');
   }
 }

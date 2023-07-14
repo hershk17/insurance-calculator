@@ -1,25 +1,9 @@
 <div class="col-12">
-  <button class="btn btn-primary" (click)="falseSubmit()">Submit form</button>
+  <button class="btn btn-primary" (click)="falseSubmit()">Submit success</button>
+  <button class="btn btn-primary" (click)="falseSubmit2()">Submit fail</button>
 </div>
 
 <form [formGroup]="driverForm" (ngSubmit)="onSubmit()">
-  <div class="has-validation mb-3">
-    <label for="licenseNo" class="form-label">License No</label>
-    <input
-      type="text"
-      id="licenseNo"
-      formControlName="licenseNo"
-      placeholder="Enter your License No"
-      class="form-control"
-      [ngClass]="{
-        'is-invalid': form['licenseNo'].touched && form['licenseNo'].invalid,
-        'is-valid': form['licenseNo'].touched && !form['licenseNo'].invalid
-      }" />
-    <div class="invalid-feedback">
-      <div>Please enter a valid License No</div>
-    </div>
-  </div>
-
   <div class="has-validation mb-3">
     <label for="name" class="form-label">Name</label>
     <input

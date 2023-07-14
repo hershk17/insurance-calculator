@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Driver } from '../../models/driver';
 import { InsuranceService } from '../../services/insurance.service';
-import { Router } from '@angular/router';
-import { Quote } from 'src/app/models/quote';
 
 @Component({
   selector: 'app-driver-form',
@@ -47,7 +46,29 @@ export class QuoteFormComponent {
     };
 
     this.insuranceService.getNewQuote(driverInfo).subscribe((res: string) => {
-      if(!res) {
+      if (!res) {
+        // show error message
+      }
+      this.router.navigate(['quotes'], { queryParams: { reference: res } });
+    });
+  }
+
+  falseSubmit2() {
+    var driverInfo: Driver = {
+      licenseNo: 'ABCD123',
+      name: 'Harsh',
+      age: 13,
+      experience: 2,
+      faults: 1,
+      insuranceCount: 4,
+      insuranceClaims: 3,
+      vehicleAge: 4,
+      vehiclePurchasePrice: 30000222,
+      vehicleAnnualMileage: 9000,
+    };
+
+    this.insuranceService.getNewQuote(driverInfo).subscribe((res: string) => {
+      if (!res) {
         // show error message
       }
       this.router.navigate(['quotes'], { queryParams: { reference: res } });
