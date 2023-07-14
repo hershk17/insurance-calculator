@@ -27,14 +27,6 @@ public class InsuranceService {
         this.quoteRepository = quoteRepository;
     }
 
-    public Optional<Driver> getDriverByLicenseNo(String licenseNo) {
-        return driverRepository.findById(licenseNo);
-    }
-
-    public List<Driver> getAllDrivers() {
-        return driverRepository.findAll();
-    }
-
     public Optional<Quote> getQuoteByReference(String reference) {
         return quoteRepository.findById(reference);
     }
@@ -150,17 +142,9 @@ public class InsuranceService {
         double premium = basePremium * insuranceFactor;
         quote.setPremium(premium);
 
-        this.saveDriver(driver);
-        this.saveQuote(quote);
+        driverRepository.save(driver);
+        quoteRepository.save(quote);
 
         return quote;
-    }
-
-    public void saveDriver(Driver driver) {
-        driverRepository.save(driver);
-    }
-
-    public void saveQuote(Quote quote) {
-        quoteRepository.save(quote);
     }
 }
