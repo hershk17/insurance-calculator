@@ -23,14 +23,6 @@ public class DriverController {
 
     @PostMapping("/calculate")
     public Quote calculateInsurance(@RequestBody Driver driver) {
-        try {
-            Quote quote = new Quote();
-            quote.setLicenseNo(driver.getLicenseNo());
-            insuranceService.saveDriver(driver);
-            insuranceService.saveQuote(quote);
-            return quote;
-        } catch (Exception e) {
-            return null;
-        }
+        return insuranceService.getNewInsuranceQuote(driver);
     }
 }
