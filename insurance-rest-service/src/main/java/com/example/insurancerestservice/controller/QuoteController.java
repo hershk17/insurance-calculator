@@ -1,9 +1,10 @@
-package com.example.insurancerestservice.Quote;
+package com.example.insurancerestservice.controller;
 
+import com.example.insurancerestservice.repository.QuoteRepository;
+import com.example.insurancerestservice.entity.Quote;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -17,7 +18,7 @@ public class QuoteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Quote> getQuoteById(@PathVariable Long id) {
+    public ResponseEntity<Quote> getQuoteById(@PathVariable String id) {
         Optional<Quote> quote = quoteRepository.findById(id);
         return quote.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }

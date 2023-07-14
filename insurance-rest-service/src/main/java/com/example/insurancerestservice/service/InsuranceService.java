@@ -6,28 +6,40 @@ import com.example.insurancerestservice.repository.DriverRepository;
 import com.example.insurancerestservice.repository.QuoteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DriverService {
+public class InsuranceService {
     private final DriverRepository driverRepository;
     private final QuoteRepository quoteRepository;
 
-    public DriverService(DriverRepository driverRepository, QuoteRepository quoteRepository) {
+    public InsuranceService(DriverRepository driverRepository, QuoteRepository quoteRepository) {
         this.driverRepository = driverRepository;
         this.quoteRepository = quoteRepository;
     }
 
-    public Quote saveQuote(Long driverId, Quote quote) {
-        Optional<Driver> optionalDriver = driverRepository.findById(driverId);
-        if (optionalDriver.isPresent()) {
-            Driver driver = optionalDriver.get();
-            quote.setDriver(driver); // Associate the quote with the driver
-
-            return quoteRepository.save(quote);
-        }
-        return null;
+    public Optional<Driver> getDriverByLicenseNo(String licenseNo) {
+        return driverRepository.findById(licenseNo);
     }
 
-    // Other service methods
+    public List<Driver> getAllDrivers() {
+        return driverRepository.findAll();
+    }
+
+    public Optional<Quote> getQuoteByReference(String reference) {
+        return quoteRepository.findById(reference);
+    }
+
+    public List<Quote> getQuotesByLicenseNo(String licenseNo) {
+        return quoteRepository.findAllByLicenseNo(licenseNo);
+    }
+
+    public void saveDriver(Driver driver) {
+        driverRepository.save(driver);
+    }
+
+    public void saveQuote(Quote quote) {
+        quoteRepository.save(quote);
+    }
 }

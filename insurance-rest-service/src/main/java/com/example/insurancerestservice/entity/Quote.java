@@ -1,6 +1,5 @@
-package com.example.insurancerestservice.Quote;
+package com.example.insurancerestservice.entity;
 
-import com.example.insurancerestservice.driver.Driver;
 import jakarta.persistence.*;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -11,9 +10,7 @@ public class Quote {
     private Boolean success;
     private Double premium;
 
-    @ManyToOne
-    @JoinColumn(name = "driver_id") // wwhyyyyyyyyyyyyyyyy
-    private Driver driver;
+    private String licenseNo;
 
     public Quote() {
         this.reference = 'Q' + RandomStringUtils.randomAlphanumeric(15).toUpperCase();
@@ -47,12 +44,12 @@ public class Quote {
         this.premium = premium;
     }
 
-    public Driver getDriver() {
-        return driver;
+    public String getLicenseNo() {
+        return licenseNo;
     }
 
-    public void setDriver(Driver driver) {
-        this.driver = driver;
+    public void setLicenseNo(String licenseNo) {
+        this.licenseNo = licenseNo;
     }
 
     @Override

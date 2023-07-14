@@ -1,11 +1,7 @@
-package com.example.insurancerestservice.driver;
+package com.example.insurancerestservice.entity;
 
-import com.example.insurancerestservice.Quote.Quote;
 import jakarta.persistence.*;
 import org.springframework.data.annotation.Id;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Driver {
@@ -25,9 +21,6 @@ public class Driver {
     private Integer insuranceCount;
     private Integer insuranceClaims;
 
-    @OneToMany(mappedBy = "driver", cascade = CascadeType.ALL)
-    private List<Quote> insuranceQuotes;
-
     public Driver() {
         this.licenseNo = "";
         this.name = "";
@@ -39,7 +32,6 @@ public class Driver {
         this.vehicleAnnualMileage = -1.0;
         this.insuranceCount = -1;
         this.insuranceClaims = -1;
-        this.insuranceQuotes = null;
     }
 
     public Driver(String licenseNo, String name, Integer age, Integer experience, Integer faults, Integer vehicleAge, Double vehiclePurchasePrice, Double vehicleAnnualMileage, Integer insuranceCount, Integer insuranceClaims) {
@@ -53,7 +45,6 @@ public class Driver {
         this.vehicleAnnualMileage = vehicleAnnualMileage;
         this.insuranceCount = insuranceCount;
         this.insuranceClaims = insuranceClaims;
-        this.insuranceQuotes = new ArrayList<Quote>();
     }
 
     public String getLicenseNo() {
@@ -134,31 +125,6 @@ public class Driver {
 
     public void setInsuranceClaims(Integer insuranceClaims) {
         this.insuranceClaims = insuranceClaims;
-    }
-
-    public List<Quote> getInsuranceQuotes() {
-        return insuranceQuotes;
-    }
-
-    public void setInsuranceQuotes(List<Quote> insuranceQuotes) {
-        this.insuranceQuotes = insuranceQuotes;
-    }
-
-    @Override
-    public String toString() {
-        return "Driver{" +
-                "licenseNo='" + licenseNo + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", experience=" + experience +
-                ", faults=" + faults +
-                ", vehicleAge=" + vehicleAge +
-                ", vehiclePurchasePrice=" + vehiclePurchasePrice +
-                ", vehicleAnnualMileage=" + vehicleAnnualMileage +
-                ", insuranceCount=" + insuranceCount +
-                ", insuranceClaims=" + insuranceClaims +
-                ", insuranceQuotes=" + insuranceQuotes +
-                '}';
     }
 }
 
