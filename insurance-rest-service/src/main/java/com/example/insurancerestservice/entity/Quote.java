@@ -10,18 +10,12 @@ public class Quote {
     private Boolean success;
     private Double premium;
 
-    private String licenseNo;
+    private long driverId;
 
     public Quote() {
         this.reference = 'Q' + RandomStringUtils.randomAlphanumeric(15).toUpperCase();
         this.success = false;
         this.premium = 0.0;
-    }
-
-    public Quote(Boolean success, Double premium) {
-        super();
-        this.success = success;
-        this.premium = premium;
     }
 
     public String getReference() {
@@ -44,12 +38,12 @@ public class Quote {
         this.premium = premium;
     }
 
-    public String getLicenseNo() {
-        return licenseNo;
+    public long getDriverId() {
+        return driverId;
     }
 
-    public void setLicenseNo(String licenseNo) {
-        this.licenseNo = licenseNo;
+    public void setDriverId(long driverId) {
+        this.driverId = driverId;
     }
 
     @Override
@@ -58,6 +52,7 @@ public class Quote {
                 "reference='" + reference + '\'' +
                 ", success=" + success +
                 ", premium=" + premium +
+                ", driverId=" + driverId +
                 '}';
     }
 }

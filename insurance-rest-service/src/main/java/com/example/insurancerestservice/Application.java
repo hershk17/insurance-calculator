@@ -30,7 +30,6 @@ public class Application {
         return args -> {
             Stream.of("John", "Julie", "Jennifer").forEach(name -> {
                 Driver driver = new Driver();
-                driver.setLicenseNo(RandomStringUtils.randomAlphanumeric(8).toUpperCase());
                 driver.setName(name);
                 driverRepository.save(driver);
             });

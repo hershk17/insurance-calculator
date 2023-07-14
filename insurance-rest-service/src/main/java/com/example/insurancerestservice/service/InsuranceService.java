@@ -6,12 +6,10 @@ import com.example.insurancerestservice.repository.DriverRepository;
 import com.example.insurancerestservice.repository.QuoteRepository;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,13 +29,9 @@ public class InsuranceService {
         return quoteRepository.findById(reference);
     }
 
-    public List<Quote> getQuotesByLicenseNo(String licenseNo) {
-        return quoteRepository.findAllByLicenseNo(licenseNo);
-    }
-
-    public Quote getNewInsuranceQuote(Driver driver) {
+    public Quote createQuote(Driver driver) {
         Quote quote = new Quote();
-        quote.setLicenseNo(driver.getLicenseNo());
+        quote.setDriverId(driver.getId());
         quote.setSuccess(true);
 
         String apiUrl = "https://storage.googleapis.com/connex-th/insurance_assignment/base_premium.json";

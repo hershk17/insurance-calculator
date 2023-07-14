@@ -1,13 +1,12 @@
 package com.example.insurancerestservice.entity;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 @Entity
 public class Driver {
-    @jakarta.persistence.Id
     @Id
-    private String licenseNo;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
 
     private String name;
     private Integer age;
@@ -22,7 +21,7 @@ public class Driver {
     private Integer insuranceClaims;
 
     public Driver() {
-        this.licenseNo = "";
+        this.id = -1;
         this.name = "";
         this.age = -1;
         this.experience = -1;
@@ -34,25 +33,8 @@ public class Driver {
         this.insuranceClaims = -1;
     }
 
-    public Driver(String licenseNo, String name, Integer age, Integer experience, Integer faults, Integer vehicleAge, Double vehiclePurchasePrice, Double vehicleAnnualMileage, Integer insuranceCount, Integer insuranceClaims) {
-        this.licenseNo = licenseNo;
-        this.name = name;
-        this.age = age;
-        this.experience = experience;
-        this.faults = faults;
-        this.vehicleAge = vehicleAge;
-        this.vehiclePurchasePrice = vehiclePurchasePrice;
-        this.vehicleAnnualMileage = vehicleAnnualMileage;
-        this.insuranceCount = insuranceCount;
-        this.insuranceClaims = insuranceClaims;
-    }
-
-    public String getLicenseNo() {
-        return licenseNo;
-    }
-
-    public void setLicenseNo(String licenseNo) {
-        this.licenseNo = licenseNo;
+    public long getId() {
+        return id;
     }
 
     public String getName() {

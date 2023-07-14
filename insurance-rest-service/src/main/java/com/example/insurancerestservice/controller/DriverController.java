@@ -1,7 +1,6 @@
 package com.example.insurancerestservice.controller;
 
 import com.example.insurancerestservice.entity.Driver;
-import com.example.insurancerestservice.entity.Quote;
 import com.example.insurancerestservice.service.InsuranceService;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +14,7 @@ public class DriverController {
     }
 
     @PostMapping("/calculate")
-    public Quote calculateInsurance(@RequestBody Driver driver) {
-        return insuranceService.getNewInsuranceQuote(driver);
+    public String calculateInsurance(@RequestBody Driver driver) {
+        return insuranceService.createQuote(driver).getReference();
     }
 }
