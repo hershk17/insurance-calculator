@@ -5,10 +5,10 @@ import { InsuranceService } from '../../services/insurance.service';
 
 @Component({
   selector: 'app-driver-form',
-  templateUrl: './driver-form.component.html',
-  styleUrls: ['./driver-form.component.css'],
+  templateUrl: './quote-form.component.html',
+  styleUrls: ['./quote-form.component.css'],
 })
-export class DriverFormComponent {
+export class QuoteFormComponent {
   driverForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private insuranceService: InsuranceService) {

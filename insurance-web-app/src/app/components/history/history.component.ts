@@ -32,12 +32,10 @@ export class HistoryComponent {
 
     let inputValue = this.form['inputValue'].value;
     if (this.form['option'].value === "1") {
-      // quote reference number
       this.insuranceService.getQuoteByReference(inputValue).subscribe((res) => {
         console.log(res);
       });
     } else {
-      // driver license number
       this.insuranceService.getQuoteByLicenseNo(inputValue).subscribe((res) => {
         console.log(res);
       });
