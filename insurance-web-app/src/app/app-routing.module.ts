@@ -1,11 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DriverListComponent } from './modules/driver/components/driver-list/driver-list.component';
-import { DriverFormComponent } from './modules/driver/components/driver-form/driver-form.component';
+import { DriverListComponent } from './components/driver-list/driver-list.component';
+import { DriverFormComponent } from './components/driver-form/driver-form.component';
+import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HistoryComponent } from './components/history/history.component';
 
 const routes: Routes = [
+  { path: 'home', component: HomeComponent },
   { path: 'drivers', component: DriverListComponent },
-  { path: 'adddriver', component: DriverFormComponent },
+  { path: 'calculate', component: DriverFormComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: 'about', component: AboutComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
