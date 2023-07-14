@@ -1,1 +1,28 @@
-<p>history works!</p>
+<h2 class="mb-5">View previous quotes</h2>
+
+<form [formGroup]="historyForm" (ngSubmit)="onSubmit()">
+  <div>
+    <select id="option" formControlName="option" class="form-select">
+      <option selected value="1">Quote Reference ID</option>
+      <option value="2">Driver's License</option>
+    </select>
+    <div class="has-validation">
+      <input
+        type="text"
+        id="inputValue"
+        formControlName="inputValue"
+        placeholder="Enter number here"
+        class="form-control"
+        [ngClass]="{
+          'is-invalid': form['inputValue'].touched && form['inputValue'].invalid,
+          'is-valid': form['inputValue'].touched && !form['inputValue'].invalid
+        }" />
+      <div class="invalid-feedback">
+        <div>Please enter a value</div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4">
+    <button type="submit" class="btn btn-primary btn-lg">View Quote</button>
+  </div>
+</form>

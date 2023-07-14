@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DriverListComponent } from './components/driver-list/driver-list.component';
 import { DriverFormComponent } from './components/driver-form/driver-form.component';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
@@ -9,7 +8,6 @@ import { HistoryComponent } from './components/history/history.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'drivers', component: DriverListComponent },
   { path: 'calculate', component: DriverFormComponent },
   { path: 'history', component: HistoryComponent },
   { path: 'about', component: AboutComponent },
@@ -19,6 +17,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

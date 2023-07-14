@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Driver } from '../../models/driver';
-import { DriverService } from '../../services/driver.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { InsuranceService } from '../../services/insurance.service';
 
 @Component({
   selector: 'app-driver-form',
@@ -12,11 +11,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class DriverFormComponent {
   driverForm: FormGroup;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private driverService: DriverService
-  ) {
+  constructor(private formBuilder: FormBuilder, private insuranceService: InsuranceService) {
     this.driverForm = this.formBuilder.group({
       licenseNo: ['', Validators.required],
       name: ['', Validators.required],
@@ -49,7 +44,7 @@ export class DriverFormComponent {
       vehicleAnnualMileage: 9000,
     };
 
-    this.driverService.calculateInsurance(driverInfo).subscribe((res) => {
+    this.insuranceService.getNewQuote(driverInfo).subscribe((res) => {
       console.log(res);
     });
   }
@@ -74,9 +69,8 @@ export class DriverFormComponent {
       vehicleAnnualMileage: this.form['vehicleAnnualMileage'].value,
     };
 
-    this.driverService.calculateInsurance(driverInfo).subscribe((res) => {
+    this.insuranceService.getNewQuote(driverInfo).subscribe((res) => {
       console.log(res);
-      this.router.navigate(['/drivers']);
     });
   }
 }
