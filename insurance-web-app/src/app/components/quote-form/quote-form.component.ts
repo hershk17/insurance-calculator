@@ -11,7 +11,6 @@ import { InsuranceService } from '../../services/insurance.service';
 })
 export class QuoteFormComponent {
   driverForm: FormGroup;
-  vehicles?: any[];
 
   constructor(private formBuilder: FormBuilder, private router: Router, private insuranceService: InsuranceService) {
     this.driverForm = this.formBuilder.group({
@@ -30,6 +29,39 @@ export class QuoteFormComponent {
   get form() {
     return this.driverForm.controls;
   }
+
+  onSubmit() {
+    // this is to highlight any invalid fields on submit
+    this.driverForm.markAllAsTouched();
+
+    if (this.driverForm.invalid) {
+      return;
+    }
+
+    var driverInfo: Driver = {
+      name: this.form['name'].value,
+      age: this.form['age'].value,
+      experience: this.form['experience'].value,
+      faults: this.form['faults'].value,
+      insuranceCount: this.form['insuranceCount'].value,
+      insuranceClaims: this.form['insuranceClaims'].value,
+      vehicleAge: this.form['vehicleAge'].value,
+      vehiclePurchasePrice: this.form['vehiclePurchasePrice'].value,
+      vehicleAnnualMileage: this.form['vehicleAnnualMileage'].value,
+    };
+
+    this.insuranceService.getNewQuote(driverInfo).subscribe((res: string) => {
+      if (!res) {
+        // TODO: show error message
+        return;
+      }
+      this.router.navigate(['quotes'], { queryParams: { reference: res } });
+    });
+  }
+
+
+
+  // TODO: REMOVE
 
   falseSubmit() {
     var driverInfo: Driver = {
@@ -63,33 +95,6 @@ export class QuoteFormComponent {
       vehicleAge: 4,
       vehiclePurchasePrice: 30000222,
       vehicleAnnualMileage: 9000,
-    };
-
-    this.insuranceService.getNewQuote(driverInfo).subscribe((res: string) => {
-      if (!res) {
-        // show error message
-      }
-      this.router.navigate(['quotes'], { queryParams: { reference: res } });
-    });
-  }
-
-  onSubmit() {
-    this.driverForm.markAllAsTouched();
-
-    if (this.driverForm.invalid) {
-      return;
-    }
-
-    var driverInfo: Driver = {
-      name: this.form['name'].value,
-      age: this.form['age'].value,
-      experience: this.form['experience'].value,
-      faults: this.form['faults'].value,
-      insuranceCount: this.form['insuranceCount'].value,
-      insuranceClaims: this.form['insuranceClaims'].value,
-      vehicleAge: this.form['vehicleAge'].value,
-      vehiclePurchasePrice: this.form['vehiclePurchasePrice'].value,
-      vehicleAnnualMileage: this.form['vehicleAnnualMileage'].value,
     };
 
     this.insuranceService.getNewQuote(driverInfo).subscribe((res: string) => {

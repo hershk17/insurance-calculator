@@ -10,9 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { QuoteDetailsComponent } from './components/quote-details/quote-details.component';
 import { QuoteFormComponent } from './components/quote-form/quote-form.component';
-import { QuoteListComponent } from './components/quote-list/quote-list.component';
 import { InsuranceService } from './services/insurance.service';
-
 
 @NgModule({
   declarations: [
@@ -20,7 +18,6 @@ import { InsuranceService } from './services/insurance.service';
     QuoteFormComponent,
     HomeComponent,
     NotFoundComponent,
-    QuoteListComponent,
     QuoteDetailsComponent,
     ContactComponent,
   ],

@@ -12,7 +12,11 @@ import { InsuranceService } from 'src/app/services/insurance.service';
 })
 export class QuoteDetailsComponent {
   referenceForm: FormGroup;
+
+  // object which contains the details of a requested quote
   quote?: Quote;
+
+  // optional error message if user enter an invalid quote
   showErrorMsg: boolean = false;
 
   constructor(
@@ -25,13 +29,18 @@ export class QuoteDetailsComponent {
     this.referenceForm = this.formBuilder.group({
       reference: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
     });
+
+    // subscribe to query params so user can refresh page and access quote by url
     this.route.queryParams.subscribe((params) => {
       this.showErrorMsg = false;
+
+      // if no reference in url, empty the quote object and display input form instead
       let reference = params['reference'];
       if (!reference) {
         this.quote = undefined;
         return;
       }
+
       this.insuranceService.getQuoteByReference(reference).subscribe((res: Quote) => {
         if (!res) {
           this.showErrorMsg = true;
@@ -47,10 +56,15 @@ export class QuoteDetailsComponent {
   }
 
   onSubmit() {
+    // this is to highlight any invalid fields on submit
     this.referenceForm.markAllAsTouched();
+
     if (this.referenceForm.invalid) {
       return;
     }
+
+    // if entered reference is 16 chars, set it to query params
+    // this will trigger above subscription and display quote details if found
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: {
