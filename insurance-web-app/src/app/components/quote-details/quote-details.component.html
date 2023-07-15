@@ -46,13 +46,16 @@
       </div>
     </div>
     <h4 class="mt-4 mb-5">Please contact our support team with the reference number above for assistance.</h4>
-    <button type="submit" class="btn btn-primary" style="margin-right: 1rem;" (click)="supportClicked()">Contact Support</button>
+    <button type="submit" class="btn btn-primary" style="margin-right: 1rem" (click)="supportClicked()">
+      Contact Support
+    </button>
     <button type="submit" class="btn btn-outline-primary" (click)="backClicked()">Go Back</button>
   </div>
 </div>
 
 <div *ngIf="!quote">
-  <h2 class="mb-5">View Previous Quotes</h2>
+  <h1 class="mb-2">Have a Quote reference number?</h1>
+  <p class="mb-5">Enter your reference id (16 characters) below to access your insurance quote.</p>
   <form [formGroup]="referenceForm" (ngSubmit)="onSubmit()">
     <label for="reference" class="form-label">Quote Reference ID</label>
     <div class="has-validation input-group input-group-lg">

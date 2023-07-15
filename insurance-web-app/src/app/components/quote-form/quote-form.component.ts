@@ -25,10 +25,6 @@ export class QuoteFormComponent {
       vehiclePurchasePrice: ['', [Validators.required, Validators.min(0)]],
       vehicleAnnualMileage: ['', [Validators.required, Validators.min(0)]],
     });
-
-    this.insuranceService.getCarModels().subscribe((res: any) => {
-      this.vehicles = res.data.car_Model_Lists.results;
-    });
   }
 
   get form() {
