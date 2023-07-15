@@ -61,6 +61,10 @@ export class QuoteDetailsComponent {
   }
 
   supportClicked() {
-    console.log('support clicked');
+    this.router.navigate(['/contact']);
+  }
+
+  printPage(): void {
+    window.print();
   }
 }
