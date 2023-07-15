@@ -27,24 +27,14 @@ public class Application {
     @Bean(name = "driverInit")
     CommandLineRunner driverInit(DriverRepository driverRepository) {
         return args -> {
-            Stream.of("John", "Julie", "Jennifer").forEach(name -> {
-                Driver driver = new Driver();
-                driver.setName(name);
-                driverRepository.save(driver);
-            });
-            driverRepository.findAll().forEach(System.out::println);
+            System.out.println("Driver repository initialized.");
         };
     }
 
     @Bean(name = "quoteInit")
     CommandLineRunner quoteInit(QuoteRepository quoteRepository) {
         return args -> {
-            Stream.of(1200.0, 1800.0, 2000.0).forEach(premium -> {
-                Quote quote = new Quote();
-                quote.setPremium(premium);
-                quoteRepository.save(quote);
-            });
-            quoteRepository.findAll().forEach(System.out::println);
+            System.out.println("Quote repository initialized.");
         };
     }
 }
