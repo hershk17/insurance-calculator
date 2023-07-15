@@ -6,7 +6,7 @@
   For potential concerns or general inquiries, you can send us an email using the button below. Our team will be in
   touch within 48 hours.
 </p>
-<a class="btn btn-primary" href="mailto:hersh.k17@gmail.com">Send Email</a>
+<a class="btn btn-primary btn-lg" href="mailto:hersh.k17@gmail.com">Send Email</a>
 
 <h3 class="mt-5">Provide Feedback</h3>
 <p>If you have any suggestions, comments, or issues to report, please use the feedback form below.</p>
@@ -23,5 +23,22 @@
     <label for="message">Message</label>
     <textarea class="form-control" id="message" rows="5"></textarea>
   </div>
-  <button type="submit" class="btn btn-primary mt-2 mb-5">Submit Feedback</button>
+  <button type="button" class="btn btn-primary btn-lg mt-2 mb-5" data-bs-toggle="modal" data-bs-target="#exampleModal">Send Feedback</button>
 </form>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Message Sent</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Thank you for your feedback!
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
