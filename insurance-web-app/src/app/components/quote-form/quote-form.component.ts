@@ -14,10 +14,9 @@ export class QuoteFormComponent {
 
   constructor(private formBuilder: FormBuilder, private router: Router, private insuranceService: InsuranceService) {
     this.driverForm = this.formBuilder.group({
-      licenseNo: ['', Validators.required],
       name: ['', Validators.required],
-      age: ['', [Validators.required, Validators.min(18)]],
-      experience: ['', [Validators.required, Validators.min(0)]],
+      age: ['', [Validators.required, Validators.min(18), Validators.max(150)]],
+      experience: ['', [Validators.required, Validators.min(0), Validators.max(150)]],
       faults: ['', [Validators.required, Validators.min(0)]],
       insuranceCount: ['', [Validators.required, Validators.min(0)]],
       insuranceClaims: ['', [Validators.required, Validators.min(0)]],
@@ -33,7 +32,7 @@ export class QuoteFormComponent {
 
   falseSubmit() {
     var driverInfo: Driver = {
-      licenseNo: 'ABCD123',
+      id: 0,
       name: 'Harsh',
       age: 13,
       experience: 2,
@@ -55,7 +54,7 @@ export class QuoteFormComponent {
 
   falseSubmit2() {
     var driverInfo: Driver = {
-      licenseNo: 'ABCD123',
+      id: 0,
       name: 'Harsh',
       age: 13,
       experience: 2,
@@ -83,7 +82,6 @@ export class QuoteFormComponent {
     }
 
     var driverInfo: Driver = {
-      licenseNo: this.form['licenseNo'].value,
       name: this.form['name'].value,
       age: this.form['age'].value,
       experience: this.form['experience'].value,

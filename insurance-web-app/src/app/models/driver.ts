@@ -1,7 +1,7 @@
 import { Quote } from "./quote";
 
 export interface Driver {
-  licenseNo: string;
+  id?: number;
   name: string;
   age: number;
   experience: number;
