@@ -12,6 +12,9 @@ import { InsuranceService } from '../../services/insurance.service';
 export class QuoteFormComponent {
   driverForm: FormGroup;
 
+  // optional error message if form submission fails
+  showErrorMsg: boolean = false;
+
   constructor(private formBuilder: FormBuilder, private router: Router, private insuranceService: InsuranceService) {
     this.driverForm = this.formBuilder.group({
       name: ['', Validators.required],
@@ -31,6 +34,8 @@ export class QuoteFormComponent {
   }
 
   onSubmit() {
+    this.showErrorMsg = false;
+
     // this is to highlight any invalid fields on submit
     this.driverForm.markAllAsTouched();
 
@@ -52,14 +57,12 @@ export class QuoteFormComponent {
 
     this.insuranceService.getNewQuote(driverInfo).subscribe((res: string) => {
       if (!res) {
-        // TODO: show error message
+        this.showErrorMsg = true;
         return;
       }
       this.router.navigate(['quotes'], { queryParams: { reference: res } });
     });
   }
-
-
 
   // TODO: REMOVE
 
