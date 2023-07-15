@@ -4,7 +4,6 @@ import com.example.insurancerestservice.entity.Driver;
 import com.example.insurancerestservice.entity.Quote;
 import com.example.insurancerestservice.repository.DriverRepository;
 import com.example.insurancerestservice.repository.QuoteRepository;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
