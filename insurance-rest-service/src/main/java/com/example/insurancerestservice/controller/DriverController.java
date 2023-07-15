@@ -13,8 +13,15 @@ public class DriverController {
         this.insuranceService = insuranceService;
     }
 
+    /**
+     * This POST endpoint creates and saves a new Quote object based on the provided Driver information object
+     * and returns the reference id of the newly create quote.
+     *
+     * @param driver contains information about the driver
+     * @return reference id of newly created quote
+     */
     @PostMapping("/calculate")
     public String calculateInsurance(@RequestBody Driver driver) {
-        return insuranceService.createQuote(driver).getReference();
+        return insuranceService.createQuote(driver);
     }
 }

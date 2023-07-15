@@ -16,8 +16,14 @@ public class QuoteController {
         this.insuranceService = insuranceService;
     }
 
+    /**
+     * This GET endpoint retrieves a Quote object for a given reference id if found.
+     *
+     * @param reference reference id of quote to be retrieved
+     * @return Optional Quote object if found
+     */
     @GetMapping(params = "reference")
-    public Optional<Quote> getQuoteByReference(@RequestParam(name="reference") String value) {
-        return insuranceService.getQuoteByReference(value);
+    public Optional<Quote> getQuoteByReference(@RequestParam(name="reference") String reference) {
+        return insuranceService.getQuoteByReference(reference);
     }
 }

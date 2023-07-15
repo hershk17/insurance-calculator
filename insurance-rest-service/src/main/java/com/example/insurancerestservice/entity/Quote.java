@@ -14,11 +14,14 @@ public class Quote {
     private Double premium;
     private String timestamp;
 
+    // links Quote to specific Driver
     private long driverId;
 
     public Quote() {
+        // generates a random 16 character alphanumeric string starting with 'Q'
         this.reference = 'Q' + RandomStringUtils.randomAlphanumeric(15).toUpperCase();
-        this.success = false;
+
+        this.success = true;
         this.premium = 0.0;
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");
