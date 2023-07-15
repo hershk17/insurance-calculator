@@ -11,6 +11,10 @@ export class InsuranceService {
 
   constructor(private http: HttpClient) {}
 
+  public getCarModels() {
+    return this.http.get('https://storage.googleapis.com/connex-th/insurance_assignment/car_model.json');
+  }
+
   public getNewQuote(driver: Driver) {
     return this.http.post(this.baseUrl + this.calculateParam, driver, { responseType: 'text' });
   }
