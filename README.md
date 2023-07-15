@@ -1,12 +1,10 @@
 # Policy Planner: An Insurance Calculator Application
 This is a web application built with Spring Boot and Angular that provides an insurance premium calculation service. It allows users to input their vehicle and driving history information to get estimated annual and monthly insurance premiums.
-<br><br>
 
 # About This Project
 
-<br><br>
 
-# Project Structure
+# Folder Structure
 ```
 .connex-test    // root directory
 |
@@ -39,11 +37,9 @@ This is a web application built with Spring Boot and Angular that provides an in
 ├── docker-compose.yml   // docker compose file for containerizing applications
 └── README.md            // contains project information and usage instructions
 ```
-<br><br>
 
 # Running the Application
 There are multiple options for running the application: using Docker or running it locally.
-<br>
 
 ## Prerequisites
 Before running the application, make sure you have the following installed on your machine:
@@ -107,7 +103,6 @@ ng serve
 This will start the frontend application on http://localhost:4200
 
 #### 7. Access the application by opening a web browser and visiting http://localhost:4200
-<br>
 
 # Miscellaneous
 If you encounter any issues running this application, please reach out to me via email at hersh.k17@gmail.com.

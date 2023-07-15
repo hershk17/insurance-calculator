@@ -11,10 +11,20 @@ export class InsuranceService {
 
   constructor(private http: HttpClient) {}
 
+  /**
+   * This method generates a new insurance quote for the provided driver information object and returns the quote's reference id.
+   * @param driver contains information about the driver
+   * @returns observable of new quote's reference id
+   */
   public getNewQuote(driver: Driver) {
     return this.http.post(this.baseUrl + this.calculateParam, driver, { responseType: 'text' });
   }
 
+  /**
+   * This method retrieved the insurance quote for the provided reference id.
+   * @param reference a 16 character alphanumeric string
+   * @returns observable of quote information object
+   */
   public getQuoteByReference(reference: string) {
     return this.http.get<Quote>(this.baseUrl + this.quotesParam, {
       params: {
