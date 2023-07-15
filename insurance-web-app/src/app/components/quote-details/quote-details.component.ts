@@ -13,6 +13,7 @@ import { InsuranceService } from 'src/app/services/insurance.service';
 export class QuoteDetailsComponent {
   referenceForm: FormGroup;
   quote?: Quote;
+  showErrorMsg: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +26,7 @@ export class QuoteDetailsComponent {
       reference: ['', [Validators.required, Validators.minLength(16), Validators.maxLength(16)]],
     });
     this.route.queryParams.subscribe((params) => {
+      this.showErrorMsg = false;
       let reference = params['reference'];
       if (!reference) {
         this.quote = undefined;
@@ -32,6 +34,7 @@ export class QuoteDetailsComponent {
       }
       this.insuranceService.getQuoteByReference(reference).subscribe((res: Quote) => {
         if (!res) {
+          this.showErrorMsg = true;
           return;
         }
         this.quote = res;
