@@ -57,7 +57,7 @@ git clone https://github.com/hershk17/connex-assessment.git
 
 **2. Navigate to the project's root directory:**
 ```
-cd connex-test
+cd connex-assessment
 ```
 
 **3. Build the Docker image:**
@@ -75,41 +75,46 @@ To run the application locally, you need to start both the backend (Spring Boot)
 git clone https://github.com/hershk17/connex-assessment.git
 ```
 
-**2. Navigate to the backend directory:**
+**2. Navigate to the project's root directory:**
+```
+cd connex-assessment
+```
+
+**3. Navigate to the backend directory:**
 ```
 cd insurance-rest-service
 ```
 
-**3. Build and run the Spring Boot application:**
+**4. Build and run the Spring Boot application:**
 ```
 ./mvnw spring-boot:run
 ```
 This will start the backend server on http://localhost:8080
 
-**4. Navigate to the frontend directory:**
+**5. Navigate to the frontend directory:**
 ```
 cd ../insurance-web-app
 ```
 
-**5. Install the necessary dependencies:**
+**6. Install the necessary dependencies:**
 ```
 npm install
 ```
 
-**6. Start the Angular development server:**
+**7. Start the Angular development server:**
 ```
 ng serve
 ```
 This will start the frontend application on http://localhost:4200
 
-**7. Access the application by opening a web browser and visiting http://localhost:4200**
+**8. Access the application by opening a web browser and visiting http://localhost:4200**
 
 # Miscellaneous
 
 ## Folder Structure
 Below is the breakdown of the project directory and where important folders and files can be found.
 ```
-.connex-test    // root directory
+.connex-assessment    // root directory
 |
 ├── insurance-rest-service
 │   ├── src
