@@ -62,6 +62,7 @@ public class InsuranceService {
         Gson gson = new Gson();
         JsonObject jsonObj = gson.fromJson(response.getBody(), JsonObject.class);
         double basePremium = jsonObj.get("base_premium").getAsDouble();
+        double insuranceFactor = 0.0;
 
         // factor 1: age
         double ageFactor = 0.0;
@@ -170,8 +171,10 @@ public class InsuranceService {
             insuranceHistoryFactor = 1;
         }
 
-        double insuranceFactor = ageFactor * drivingExperienceFactor * driverRecordFactor * claimsFactor *
-                carValueFactor * mileageFactor * insuranceHistoryFactor;
+        if(quote.getSuccess()) {
+            insuranceFactor = ageFactor * drivingExperienceFactor * driverRecordFactor * claimsFactor *
+                    carValueFactor * mileageFactor * insuranceHistoryFactor;
+        }
 
         // final insurance factor
         double premium = basePremium * insuranceFactor;
