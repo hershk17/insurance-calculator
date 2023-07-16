@@ -14,7 +14,6 @@
 - [Miscellaneous](#miscellaneous)
   - [Folder Structure](#folder-structure)
 
-
 # About
 This is a web application built with Spring Boot and Angular that provides an insurance premium calculation service. It allows users to input their vehicle and driving history information to get estimated annual and monthly insurance premiums.
 
@@ -34,12 +33,9 @@ Apart from the core requirements, some of the additional enhancements include:
 - Home, contact, and not found pages
 
 # Challenges
-The main challenge I faced was deciding the core structure of the Driver and Quote entities. Initially, I spent a lot of time experimenting with the idea of using a One to Many relationship between drivers and quotes. Each driver would enter their license number and be uniquely identifiable, and quotes made by them would be linked to their license number. My main reasoning for this was that it would allow accessing all the quotes made by a driver.
+The main challenge I faced was deciding the core structure of the Driver and Quote entities. Initially, I spent a lot of time experimenting with the idea of using a One to Many relationship between drivers and quotes. My main reasoning for this was that it would allow accessing all the quotes made by a driver. Although this sounded tempting as a feature, I ultimately decided to not go with this approach. The user would likely be confused why they have to provide both their license number and their driving record/history. Instead, I decided to maintain a slightly independent relationship between drivers and quotes. If the user can look up their quotes by reference id, that still largely accomplishes the same goal. I found that this was the best of both worlds where the user experience is streamlined and sensitive information is protected.
 
-Although this sounded tempting as a feature, I ultimately decided to not go with this approach. The user would likely be confused why they have to provide both their license number and their driving record/history. Building around such a structure impacted the user experience and flow of the website. Ultimately, I decided to maintain a slightly independent relationship between drivers and quotes. If the user can look up their quotes by reference id, that still largely accomplishes the same goal. Internally, the application still keeps track of the driver linked to a quote, however this information will not be accessible externally. I found that this was the best of both worlds where the user experience is streamlined and sensitive information is protected.
-
-Another challenge was organizing lots of input fields on a single page. Since I had been using Angular Material for a long time, I decided to go with bootstrap for this project. Although bootstrap is great, I think it wouldn't be ideal for designing complex or very large forms. At one point I considered switching to Material and utilizing a vertical stepper of sorts, but ultimately decided against it. I wanted to avoid bloating the project in size or complexity by creating too many things for the user to do or follow. My solution then was to simply better make use of spacing. I grouped up fields into categories to better organize the long list of inputs. In a way, I believe that using bootstrap indirectly helped me achieve my goal of creating a straight forward UX for this application.
-
+Another challenge was organizing lots of input fields on a single page. Since I had been using Angular Material for a long time, I decided to go with bootstrap for this project. Although bootstrap is great, I found that it isn't ideal for designing larger forms. My solution then, was to make better use of spacing by grouping up fields into categories, to better organize the long list of inputs.
 
 # Running the Application
 There are multiple options for running the application: using Docker or running it locally.
@@ -145,5 +141,4 @@ Below is the breakdown of the project directory and where important folders and 
 ```
 
 If you encounter any issues running this application, please reach out to me via email at hersh.k17@gmail.com.
-
 **Thank you!**
