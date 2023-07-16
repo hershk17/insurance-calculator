@@ -77,39 +77,34 @@ To run the application locally, you need to start both the backend (Spring Boot)
 git clone https://github.com/hershk17/connex-assessment.git
 ```
 
-**2. Navigate to the project's root directory:**
+**2. Navigate to the backend directory:**
 ```
-cd connex-assessment
-```
-
-**3. Navigate to the backend directory:**
-```
-cd insurance-rest-service
+cd connex-assessment/insurance-rest-service
 ```
 
-**4. Build and run the Spring Boot application:**
+**3. Build and run the Spring Boot application:**
 ```
 ./mvnw spring-boot:run
 ```
 This will start the backend server on http://localhost:8080
 
-**5. Navigate to the frontend directory:**
+**4. In a new terminal window, navigate to the frontend directory:**
 ```
-cd ../insurance-web-app
+cd connex-assessment/insurance-web-app
 ```
 
-**6. Install the necessary dependencies:**
+**5. Install the necessary dependencies:**
 ```
 npm install
 ```
 
-**7. Start the Angular development server:**
+**6. Start the Angular development server:**
 ```
 ng serve
 ```
 This will start the frontend application on http://localhost:4200
 
-**8. Access the application by opening a web browser and visiting http://localhost:4200**
+**7. Access the application by opening a web browser and visiting http://localhost:4200**
 
 # Miscellaneous
 
