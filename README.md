@@ -144,5 +144,5 @@ Below is the breakdown of the project directory and where important folders and 
 ```
 
 ## Support
-If you encounter any issues running this application, please reach out to me via email at hersh.k17@gmail.com.
+If you encounter any issues running this application, please reach out to me via email at hersh.k17@gmail.com. <br>
 **Thank you!**
