@@ -124,6 +124,13 @@ public class InsuranceService {
         // factor 5: car value after depreciation
         double carValueFactor = 0.0;
         Double carValue = driver.getVehiclePurchasePrice();
+        for (int i = 1; i <= age; i++) {
+            if (i <= 3) {
+                carValue -= carValue * 0.15;
+            } else {
+                carValue -= carValue * 0.10;
+            }
+        }
         if (carValue < 30000.0) {
             carValueFactor = 0.8;
         } else if (carValue < 60000.0) {
