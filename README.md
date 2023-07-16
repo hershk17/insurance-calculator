@@ -54,12 +54,12 @@ To run the application using Docker, follow these steps:
 
 **2. Clone the repository to your local machine:**
 ```
-git clone https://github.com/hershk17/connex-assessment.git
+git clone https://github.com/hershk17/insurance-calculator.git
 ```
 
 **3. Navigate to the project's root directory:**
 ```
-cd connex-assessment
+cd insurance-calculator
 ```
 
 **4. Build the Docker image:**
@@ -74,12 +74,12 @@ To run the application locally, you need to start both the backend (Spring Boot)
 
 **1. Clone the repository to your local machine:**
 ```
-git clone https://github.com/hershk17/connex-assessment.git
+git clone https://github.com/hershk17/insurance-calculator.git
 ```
 
 **2. Navigate to the backend directory:**
 ```
-cd connex-assessment/insurance-rest-service
+cd insurance-calculator/insurance-rest-service
 ```
 
 **3. Build and run the Spring Boot application:**
@@ -90,7 +90,7 @@ This will start the backend server on http://localhost:8080
 
 **4. In a new terminal window, navigate to the frontend directory:**
 ```
-cd connex-assessment/insurance-web-app
+cd insurance-calculator/insurance-web-app
 ```
 
 **5. Install the necessary dependencies:**
@@ -111,7 +111,7 @@ This will start the frontend application on http://localhost:4200
 ## Folder Structure
 Below is the breakdown of the project directory and where important folders and files can be found.
 ```
-.connex-assessment    // root directory
+.insurance-calculator    // root directory
 |
 ├── insurance-rest-service
 │   ├── src
