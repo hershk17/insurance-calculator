@@ -4,23 +4,24 @@
 - [Policy Planner: An Insurance Calculator Application](#policy-planner-an-insurance-calculator-application)
 - [Table of Contents](#table-of-contents)
 - [About](#about)
-- [Introduction](#introduction)
-- [Highlights](#highlights)
-- [Challenges](#challenges)
+  - [Introduction](#introduction)
+  - [Highlights](#highlights)
+  - [Challenges](#challenges)
 - [Running the Application](#running-the-application)
   - [Prerequisites](#prerequisites)
   - [Option 1: Docker (recommended)](#option-1-docker-recommended)
   - [Option 2: Locally](#option-2-locally)
 - [Miscellaneous](#miscellaneous)
   - [Folder Structure](#folder-structure)
+  - [Support](#support)
 
 # About
 This is a web application built with Spring Boot and Angular that provides an insurance premium calculation service. It allows users to input their vehicle and driving history information to get estimated annual and monthly insurance premiums.
 
-# Introduction
+## Introduction
 I enjoyed working on this project over the past few days and it was a good refresher on some technologies I was already familiar with. I got a better understanding on designing better user experiences as well as functional but clean system design. My goal when working on this project was to focus on user experience and clean system design. Instead of implementing as many features as possible, I focused on optimizing the core features and improving ease of use. I believe I was able to reasonably achieve my goal for this project and expanded upon the original requirements in a meaningful way.
 
-# Highlights
+## Highlights
 Apart from the core requirements, some of the additional enhancements include:
 - Viewing previously created quotes by their reference id
 - Printing a generated quote
@@ -32,7 +33,7 @@ Apart from the core requirements, some of the additional enhancements include:
 - Buttons to redirect you to the next appropriate location at every page
 - Home, contact, and not found pages
 
-# Challenges
+## Challenges
 The main challenge I faced was deciding the core structure of the Driver and Quote entities. Initially, I spent a lot of time experimenting with the idea of using a One to Many relationship between drivers and quotes. My main reasoning for this was that it would allow accessing all the quotes made by a driver. Although this sounded tempting as a feature, I ultimately decided to not go with this approach. The user would likely be confused why they have to provide both their license number and their driving record/history. Instead, I decided to maintain a slightly independent relationship between drivers and quotes. If the user can look up their quotes by reference id, that still largely accomplishes the same goal. I found that this was the best of both worlds where the user experience is streamlined and sensitive information is protected.
 
 Another challenge was organizing lots of input fields on a single page. Since I had been using Angular Material for a long time, I decided to go with bootstrap for this project. Although bootstrap is great, I found that it isn't ideal for designing larger forms. My solution then, was to make better use of spacing by grouping up fields into categories, to better organize the long list of inputs.
@@ -140,5 +141,6 @@ Below is the breakdown of the project directory and where important folders and 
 └── README.md            // contains project information and usage instructions
 ```
 
+## Support
 If you encounter any issues running this application, please reach out to me via email at hersh.k17@gmail.com.
 **Thank you!**
