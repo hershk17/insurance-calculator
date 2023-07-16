@@ -50,22 +50,24 @@ Before running the application, make sure you have the following installed on yo
 ## Option 1: Docker (recommended)
 To run the application using Docker, follow these steps:
 
-**1. Clone the repository to your local machine:**
+**1. Launch the Docker application**
+
+**2. Clone the repository to your local machine:**
 ```
 git clone https://github.com/hershk17/connex-assessment.git
 ```
 
-**2. Navigate to the project's root directory:**
+**3. Navigate to the project's root directory:**
 ```
 cd connex-assessment
 ```
 
-**3. Build the Docker image:**
+**4. Build the Docker image:**
 ```
 docker-compose up --build
 ```
 
-**4. Access the application by opening a web browser and visiting http://localhost:4200**
+**5. Access the application by opening a web browser and visiting http://localhost:4200**
 
 ## Option 2: Locally
 To run the application locally, you need to start both the backend (Spring Boot) and frontend (Angular) applications.

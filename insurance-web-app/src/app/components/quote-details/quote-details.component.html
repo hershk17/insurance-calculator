@@ -37,7 +37,7 @@
 
   <!-- Support tip for unsuccessful quote -->
   <h5 *ngIf="!quote.success" class="mt-4 mb-5">
-    Please email our insurance specialist using the button below to get a custom quote. Make sure to include your reference number (16
+    Please email our insurance specialist using the button below to get a custom quote. Make sure to include your reference id (16
     characters) in the email subject.
   </h5>
 
@@ -56,10 +56,10 @@
 
 <!-- Quote Form Container -->
 <div *ngIf="!quote">
-  <h1 class="mb-2">Have a Quote reference number?</h1>
-  <p class="mb-5">Enter your reference id (16 characters) below to access your insurance quote.</p>
+  <h1 class="mb-2">Have a Quote reference ID?</h1>
+  <p class="mb-5">Enter your reference ID (16 characters) below to access your insurance quote.</p>
   <div *ngIf="showErrorMsg" class="text-danger mb-4">
-    Could not find this quote. Please check your reference number and try again.
+    Could not find this quote. Please check your reference ID and try again.
   </div>
   <form [formGroup]="referenceForm" (ngSubmit)="onSubmit()">
     <label for="reference" class="form-label">Quote Reference ID</label>
