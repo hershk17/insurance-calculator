@@ -1,4 +1,4 @@
-# Policy Planner: An Insurance Calculator Application
+# Policy Planner: A Vehicle Insurance Calculator Application
 
 # Table of Contents
 - [Policy Planner: An Insurance Calculator Application](#policy-planner-an-insurance-calculator-application)
