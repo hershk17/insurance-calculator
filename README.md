@@ -41,6 +41,8 @@ Another challenge was organizing lots of input fields on a single page. Since I 
 # Running the Application
 There are multiple options for running the application: using Docker or running it locally.
 
+Note: the application can also be quickly accessed via https://policy-planner.vercel.app
+
 ## Prerequisites
 Before running the application, make sure you have the following installed on your machine:
 - [Java Development Kit (JDK) 17 or later](https://www.oracle.com/ca-en/java/technologies/downloads/#java17)
