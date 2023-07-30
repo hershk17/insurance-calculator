@@ -39,10 +39,10 @@ public class InsuranceService {
     /**
      * This method creates a new quote by breaking down the information provided in the Driver object.
      * Various parameter are analyzed to calculate the insurance factor.
-     *
+     * <p>
      * This insurance factor is multiplied by a base premium to calculate the final annual insurance.
      * The newly created Quote object is linked to its corresponding Driver object by id.
-     *
+     * <p>
      * For certain parameters, it is possible that quote cannot be calculated. In such cases, the Quote
      * will have a false success value and users should be redirected to a specialist for custom quotes.
      *
@@ -69,14 +69,11 @@ public class InsuranceService {
         Integer age = driver.getAge();
         if (age < 25) {
             ageFactor = 1.3;
-        }
-        else if (age < 40) {
+        } else if (age < 40) {
             ageFactor = 1;
-        }
-        else if (age < 70) {
+        } else if (age < 70) {
             ageFactor = 0.9;
-        }
-        else {
+        } else {
             // premium cannot be calculated
             quote.setSuccess(false);
         }
@@ -171,7 +168,7 @@ public class InsuranceService {
             insuranceHistoryFactor = 1;
         }
 
-        if(quote.getSuccess()) {
+        if (quote.getSuccess()) {
             insuranceFactor = ageFactor * drivingExperienceFactor * driverRecordFactor * claimsFactor *
                     carValueFactor * mileageFactor * insuranceHistoryFactor;
         }

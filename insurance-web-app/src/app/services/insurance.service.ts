@@ -5,7 +5,8 @@ import { Quote } from '../models/quote';
 
 @Injectable()
 export class InsuranceService {
-  baseUrl: string = 'http://localhost:8080';
+  baseUrl: string = 'https://insurancerestservice-1690701015078.azurewebsites.net';
+  // baseUrl: string = 'http://localhost:8080';
   calculateParam: string = '/calculate';
   quotesParam: string = '/quotes';
 
